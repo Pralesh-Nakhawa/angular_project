@@ -1,0 +1,27 @@
+      <mat-list>
+        <mat-list-item > <span >Electronic</span> <span>Fashion</span></mat-list-item>
+      </mat-list>
+        <mat-divider></mat-divider>
+
+<mat-grid-list class="card" cols="4" rowHeight="400">
+  <mat-grid-tile *ngFor="let item of productList">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{item.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{item.image}}">
+        <mat-card-content>
+          <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+
+          <p><strong>Price: {{item.price}}</strong></p>
+        </mat-card-content>
+
+        <mat-card-actions >
+          <!-- <button mat-button color="primary">Add To Cart</button> -->
+          <button mat-raised-button (click)=addtocart(item) color="primary">Add To Cart</button>    <!--  ==>click event    -->
+        </mat-card-actions>
+      </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
+

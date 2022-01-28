@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "pg": "^8.7.1",
+    "sequelize": "^6.14.1",
+    "sequelize-cli": "^6.4.1",
+    "yarn": "^1.22.17"
+  },
+  "name": "chip-cart-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

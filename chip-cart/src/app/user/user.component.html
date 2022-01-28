@@ -1,0 +1,26 @@
+<table  >
+    <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Edit/Delete</th>
+    </tr>
+    <tr *ngFor="let user of userData">
+        <td> {{user.id}}</td>
+        <td> {{user.name}}</td>
+        <td> {{user.address}}</td>
+        <td> {{user.mobile}}</td>
+        <td> {{user.email}}</td>
+        <td> {{user.password}}</td>
+        
+        <td>  <button  mat-icon-button  color="primary" routerLink="/edit" ><mat-icon>edit</mat-icon> </button>
+             <button mat-icon-button  color="warn" (click)="deleteUserDetail(user)" ><mat-icon>delete</mat-icon> </button></td>
+    </tr>
+</table>
+
+
+
+      

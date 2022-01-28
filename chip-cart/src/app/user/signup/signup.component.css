@@ -1,0 +1,15 @@
+.example-card {
+    max-width: 400px;
+    margin: 0 auto; 
+        float: none; 
+        margin-top: 10px;
+        margin-bottom: 10px;
+  }
+
+.example-container .mat-form-field + .mat-form-field  {
+    margin-left: 8px;
+  }
+a{
+    text-decoration: none;
+    margin: 10px;
+}
