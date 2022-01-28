@@ -8,6 +8,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -59,7 +60,8 @@ import{ MatGridListModule } from '@angular/material/grid-list';
     HttpClientModule,
     MatDialogModule,
      MatMenuModule,
-    MatGridListModule
+    MatGridListModule,
+    MatBadgeModule
 
   ],
   providers: [],

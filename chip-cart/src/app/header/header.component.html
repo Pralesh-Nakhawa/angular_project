@@ -2,11 +2,13 @@
     <mat-icon>local_shipping</mat-icon>
    <span style="margin-right: 60%;">Chip-Cart</span>
    <a routerLink="login" style="margin-right:5%;">Login</a>
+   <a routerLink="#" style="margin-right:5%; color: white;">More</a>
    <!-- <button mat-button [matMenuTriggerFor]="menu" #menuTrigger>Menu</button> -->
 <!-- <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="openDialog()">Open dialog</button>
 </mat-menu> -->
-   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with shoppingcart icon">
-     <mat-icon>shopping_cart_rounded</mat-icon>
+   <button mat-icon-button routerLink="/cart"class="example-icon favorite-icon" aria-label="Example icon-button with shoppingcart icon" >
+     <mat-icon matBadge="0" matBadgeColor="warn">shopping_cart_rounded</mat-icon>
+     
    </button>
 </mat-toolbar>
