@@ -1,0 +1,27 @@
+<table  >
+  <tr>
+    <th>Sr.No.</th>
+      <th>ID</th>
+      <th>Product Title</th>
+      <th>Image</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>categories</th>
+      <th>Edit/Delete</th>
+  </tr>
+  <tr *ngFor="let Product of productList; let i= index" >
+    <th> {{i + 1}} </th>
+      <td> {{Product.id}}</td>
+      <td> {{Product.title}}</td>
+      <td>  <img src="../assets/{{Product.image}}" alt="" height="100" width="100"/></td>
+      <td> {{Product.description}}</td>
+      <td> {{Product.price}}</td>
+      <td> {{Product.categories}}</td>
+
+      <td>  <button  mat-icon-button  color="primary" routerLink="/edit" ><mat-icon>edit</mat-icon> </button>
+           <button mat-icon-button  color="warn" (click)="deleteProduct(Product)"  ><mat-icon>delete</mat-icon> </button></td>
+  </tr>
+</table>
+
+
+

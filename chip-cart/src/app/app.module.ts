@@ -28,6 +28,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 import { MatMenuModule } from '@angular/material/menu';
 import{ MatGridListModule } from '@angular/material/grid-list';
+import { AdminComponent } from './admin/admin.component';
+import { AdministratorComponent } from './administrator/administrator.component';
+import { AddProductComponent } from './administrator/add-product/add-product.component';
+import { UpdateProductComponent } from './administrator/update-product/update-product.component';
+import { ViewProductComponent } from './administrator/view-product/view-product.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -42,7 +48,13 @@ import{ MatGridListModule } from '@angular/material/grid-list';
     LoginComponent,
     SignupComponent,
   
-    UpdateUserComponent
+    UpdateUserComponent,
+    AdminComponent,
+    AdministratorComponent,
+    AddProductComponent,
+    UpdateProductComponent,
+    ViewProductComponent
+
   ],
   imports: [
     BrowserModule,
@@ -61,7 +73,9 @@ import{ MatGridListModule } from '@angular/material/grid-list';
     MatDialogModule,
      MatMenuModule,
     MatGridListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSelectModule
+    
 
   ],
   providers: [],

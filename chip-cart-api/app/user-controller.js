@@ -31,6 +31,7 @@ exports.findByPk=(req,resp)=>{
 			});
 			return;
 		}
+		
 		const newUsers={
 			name: req.body.name,
 			address: req.body.address,
@@ -87,3 +88,4 @@ exports.findByPk=(req,resp)=>{
 				})
 			})
 	}
+	

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddProductComponent } from './administrator/add-product/add-product.component';
+import { AdministratorComponent } from './administrator/administrator.component';
+import { ViewProductComponent } from './administrator/view-product/view-product.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './user/login/login.component';
@@ -15,7 +18,10 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
   {path:'user',component:UserComponent },
-  {path:'edit',component:UpdateUserComponent}
+  {path:'edit',component:UpdateUserComponent},
+  {path:'administrator', component:AdministratorComponent},
+  {path: 'add-product', component:AddProductComponent},
+  {path: 'view-product', component:ViewProductComponent}
  
 ];
 

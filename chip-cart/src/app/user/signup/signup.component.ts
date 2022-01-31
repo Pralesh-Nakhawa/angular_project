@@ -32,11 +32,12 @@ export class SignupComponent implements OnInit {
     this.userModel.email= this.formGroup.value.email;
     this.userModel.password= this.formGroup.value.password;
       if(this.userModel.password=== this.formGroup.value.confirm){
+       
     this.api.postUser(this.userModel).subscribe(res=>{
       
       alert("Sign up Successfull");
       this.formGroup.reset();
-     this.route.navigate(["/products"]);
+     this.route.navigate(["/login"]);
 
     })}
   }

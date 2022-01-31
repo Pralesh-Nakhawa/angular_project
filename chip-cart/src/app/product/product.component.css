@@ -1,5 +1,8 @@
-mat-list-item span{
-    margin: 10px ;
+.category-card {
+margin: 10px 15% auto;
+}
+.category-card button {
+  margin-right: 10px;
 }
    /* mat-grid-list {
   padding-top: 20px;

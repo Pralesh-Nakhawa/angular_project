@@ -1,0 +1,116 @@
+
+
+
+
+<mat-card  class="example-card">
+  <h1>Chip-Cart</h1>
+  <h3>Enter Product details</h3>
+  <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+      <div class="example-container">
+          <mat-form-field appearance="fill">
+          <mat-label>Enter Product Title</mat-label>
+          <input matInput placeholder="eg.laptop" formControlName="title" required>
+
+          </mat-form-field>
+      </div>
+
+      <div class="example-container">
+          <mat-form-field appearance="fill">
+          <mat-label>Enter Product Description</mat-label>
+          <input matInput placeholder="Description" formControlName="description" required>
+
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+            <mat-label>Enter Product Price</mat-label>
+            <input  matInput type="number" formControlName="price" required>
+
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+
+          <mat-form-field appearance="fill">
+          <mat-label>Enter Product Categories</mat-label>
+          <mat-select formControlName="categories" placeholder="categories">
+<mat-option value="electronics">electronics</mat-option>
+<mat-option value="electronics">womens clothing</mat-option>
+<mat-option value="electronics">Mens Clothing</mat-option>
+
+          </mat-select>
+          <!-- <input matInput  formControlName="categories" > -->
+
+          </mat-form-field>
+      </div>
+        <div class="example-container">
+
+            <mat-form-field appearance="fill">
+            <mat-label>Enter Product Image</mat-label>
+            <input matInput type="text"  formControlName="image"  >
+
+            </mat-form-field>
+        </div>
+<div class="example-button-row">
+
+        <button type="submit" mat-raised-button  color="primary">Add Product</button>
+
+        <button mat-raised-button routerLink="" color="warn" style="margin-left: 10px;">Cancel</button>
+
+      </div>
+      </form>
+    </mat-card>
+
+
+    <!-- <mat-card  class="example-card">
+      <h1>Chip-Cart</h1>
+      <h3>Enter your details</h3>
+      <form >
+          <div class="example-container">
+              <mat-form-field appearance="fill">
+              <mat-label>Enter your fullname</mat-label>
+              <input matInput placeholder="eg.Chip Cart" formControlName="name" required>
+
+              </mat-form-field>
+          </div>
+          <div class="example-container">
+              <mat-form-field appearance="fill">
+              <mat-label>Enter your full address</mat-label>
+              <input matInput placeholder="address" formControlName="address" required>
+
+              </mat-form-field>
+          </div>
+          <div class="example-container">
+              <mat-form-field appearance="fill">
+              <mat-label>Enter your mobile number</mat-label>
+              <input  matInput type="tel" maxlength="10" placeholder="eg.9876543210" formControlName="mobile" required>
+
+              </mat-form-field>
+          </div>
+          <div class="example-container">
+              <mat-form-field appearance="fill">
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder="pat@example.com" formControlName="email" required>
+
+              </mat-form-field>
+          </div>
+          <div class="example-container">
+              <mat-form-field appearance="fill">
+              <mat-label>Enter your password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" placeholder="password" formControlName="password" required> -->
+
+              <!-- </mat-form-field>
+          </div>
+          <div class="example-container">
+              <mat-form-field appearance="fill">
+              <mat-label>Confirm password</mat-label>
+              <input  [type]="hide ? 'password' : 'text'" matInput placeholder="confirm" formControlName="confirm" required> -->
+
+              <!-- </mat-form-field>
+              </div>
+
+
+
+          <button type="submit"  mat-raised-button color="primary">Sign up</button>
+          <a routerLink="/login">Have account? Login</a>
+      </form>
+  </mat-card>  -->

@@ -7,10 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
 
   public cartItemList : any=[];
+
   public productList = new BehaviorSubject<any>([]);
   constructor() { }
 
-  getProducts(){
+  getProductList(){
     return this.productList.asObservable();
   }
 
@@ -18,8 +19,9 @@ export class CartService {
     this.cartItemList.push(...product);
     this.productList.next(product);
   }
-  addtoCart(productList : any){
-    this.cartItemList.push(productList);
+  addtoCart(product : any, pQuantity:number){
+    const _product={product:product,quantity:pQuantity};
+    this.cartItemList.push(_product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
     console.log(this.cartItemList)
@@ -27,10 +29,13 @@ export class CartService {
   getTotalPrice() : number{
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
+      const q:number=parseInt(a.quantity);
+      console.log(q);
+      grandTotal += a.product.total*q;
     })
     return grandTotal;
   }
+
   removeCartItem(product: any){
     this.cartItemList.map((a:any, index:any)=>{
       if(product.id=== a.id){

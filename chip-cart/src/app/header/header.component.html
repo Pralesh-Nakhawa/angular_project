@@ -1,14 +1,32 @@
 <mat-toolbar color="primary">
     <mat-icon>local_shipping</mat-icon>
    <span style="margin-right: 60%;">Chip-Cart</span>
-   <a routerLink="login" style="margin-right:5%;">Login</a>
-   <a routerLink="#" style="margin-right:5%; color: white;">More</a>
-   <!-- <button mat-button [matMenuTriggerFor]="menu" #menuTrigger>Menu</button> -->
-<!-- <mat-menu #menu="matMenu">
-  <button mat-menu-item (click)="openDialog()">Open dialog</button>
+   <a style="margin-right: 6%;" *ngIf="!loggedin()" routerLink="login" style="margin-right:5%;">Login</a>
+   <!-- <a *ngIf="loggedin()" (click)="onLogout()"  style="margin-right:5%;">Logout{{userId}}</a> -->
+   <button style="margin-right: 6%;font-size: large;color: yellow;"
+    *ngIf="loggedin()" mat-button [matMenuTriggerFor]="profile" #menuTrigger>My Account</button>
+   <mat-menu #profile="matMenu">
+     <button mat-menu-item (click)="getProfile()" routerLink="user">Profile</button>
+     <button mat-menu-item routerLink="add-product">Want To Sell? on Chip-Cart</button>
+     <button mat-menu-item (click)="onLogout()">Logout</button>
+   </mat-menu>
+   <!-- <button mat-button [matMenuTriggerFor]="menu" #menuTrigger>ADMIN</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="add-product">Want to Add Product?</button>
+  
 </mat-menu> -->
-   <button mat-icon-button routerLink="/cart"class="example-icon favorite-icon" aria-label="Example icon-button with shoppingcart icon" >
-     <mat-icon matBadge="0" matBadgeColor="warn">shopping_cart_rounded</mat-icon>
-     
+
+
+<!-- <a routerLink="admin" style="margin-right:5%;">ADMIN</a> -->
+<button *ngIf="!loggedin()" mat-icon-button  aria-label="Example icon-button with shoppingcart icon">
+  <mat-icon routerLink="login" matBadge={{totalItem}} matBadgeColor="warn" matBadgePosition="after" matBadgeOverlap="true" >shopping_cart_rounded
+
+  </mat-icon></button>
+   <button *ngIf="loggedin()" mat-icon-button aria-label="Example icon-button with shoppingcart icon">
+     <mat-icon routerLink="cart" matBadge={{totalItem}} matBadgeColor="warn" matBadgePosition="after" matBadgeOverlap="true" >shopping_cart_rounded
+
+     </mat-icon>
+
    </button>
+
 </mat-toolbar>

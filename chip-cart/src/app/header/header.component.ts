@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatMenuTrigger } from '@angular/material/menu';
+import { Router } from '@angular/router';
+import { LoginServiceService } from '../login-service.service';
+import { CartService } from '../service/cart.service';
+
+
+import { user } from '../userInterface';
 
 
 @Component({
@@ -9,26 +13,33 @@ import { MatMenuTrigger } from '@angular/material/menu';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
- 
-
+  userData!:any;
+  userId!: string;
+  public totalItem : number = 0;
   ngOnInit(): void {
+    this.CartService.getProductList()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    });
+   
+  }
+  getProfile(){
+    const userIdDetail=parseInt(localStorage.getItem('token')as string)
+    this.api.getUserById(userIdDetail).subscribe(res=>{this.userData=res});  
+    console.log(userIdDetail);
+    console.log(this.userData.name);
   }
   
-  // @ViewChild('menuTrigger') menuTrigger!: MatMenuTrigger;
+  constructor(private CartService:CartService,private api:LoginServiceService,private route:Router) {}
 
-  constructor(public dialog: MatDialog) {}
-
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(DialogFromMenuExampleDialog, {restoreFocus: false});
-
-  //   // Manually restore focus to the menu trigger since the element that
-  //   // opens the dialog won't be in the DOM any more when the dialog closes.
-  //   dialogRef.afterClosed().subscribe(() => this.menuTrigger.focus());
-  // }
+  loggedin(){
+   
+    
+    this.userId=localStorage.getItem('token') as string;
+    return this.userId
+  }
+  onLogout(){
+    localStorage.removeItem('token');
+    this.route.navigate(["/products"])
+  }
 }
-// @Component({
-//   selector: 'dialog-from-menu-dialog',
-//   templateUrl: 'dialog-from-menu-example-dialog.html',
-// })
-// export class DialogFromMenuExampleDialog {}

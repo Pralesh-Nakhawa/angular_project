@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
+
 import { ProductService } from '../service/product.service';
 // import { Products } from './Iproduct';
 
@@ -16,18 +17,31 @@ export class ProductComponent implements OnInit {
   // }
 
 public productList : any;
+public pQuantity:number=1;
+
 constructor(private api :ProductService , private CartService:CartService) { }
 
 ngOnInit(): void {
     this.api.getProduct()
     .subscribe((res:any)=>{
       this.productList=res;
-    })
+      this.productList.forEach((a:any) => {
+        Object.assign(a,{quantity:this.pQuantity=1,total:a.price});
+
+      })
+      
+    });
+
 
 }
-addtocart(item: any){
-  this.addtocart(item)
-
+addtoCart(productList : any, pQuantity:number){
+  console.log(pQuantity);
+  this.CartService.addtoCart(productList,pQuantity);
 }
-
+getProductByCat(categorie:string){
+  this.api.productByCat(categorie)
+  .subscribe((res:any)=>{
+    this.productList=res;
+  });
+}
 }

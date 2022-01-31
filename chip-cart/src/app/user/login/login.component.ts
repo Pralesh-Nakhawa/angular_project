@@ -33,7 +33,7 @@ password:new FormControl('', [Validators.required])
       return a.email===this.formGroup.value.email && a.password===this.formGroup.value.password
     });
     if(user){
-      
+     localStorage.setItem('token',user.id);
       this.formGroup.reset();
       this.route.navigate(["/products"])
     }
