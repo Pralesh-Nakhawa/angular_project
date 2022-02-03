@@ -31,13 +31,14 @@ exports.findAll=(req,resp)=>{
     
     };
     exports.create = (req, resp) => {
-		if(!req.body.title){
+		if(!req.body.title||!req.body.userid||!req.body.description||!req.body.categories||!req.body.price||!req.body.image){
 			resp.status(400).send({
 				message: "Content can not be empty!"
 			});
 			return;
 		}
 		const newProduct={
+            userid:req.body.userid,
 			title: req.body.title,
 			description: req.body.description,
 			categories: req.body.categories,
@@ -62,7 +63,7 @@ exports.update = (req, resp) => {
 
     Product.update(req.body, { where: { id: id } })
         .then(num => {
-            if (num > 1) {
+            if (num >= 1) {
             resp.send({
                 message: "product with id ${id} updated successfully."
             });
@@ -107,3 +108,13 @@ exports.delete = (req, resp) => {
 			});
 	
 	};
+    exports.findAllByUserid=(req,resp)=>{
+        const userid = req.params.userid;
+        Product.findAll({ where: { userid: userid }})
+              .then((data)=>{resp.json(data)})
+              .catch((err)=>{
+                  resp.status(500)
+                       .send({message:err.message|| " Some Error retriving product Data"})
+              })
+    
+    };

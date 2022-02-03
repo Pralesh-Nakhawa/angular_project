@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+    <h1>Chip-Cart</h1>
+    <h3>Update your details</h3>
+    <div class="example-container">
+        <h3>
+            <mat-label>Your Email ID: </mat-label>
+            <span>{{userData.email|uppercase}}</span>
+        </h3>
+    </div>
+    <form [formGroup]="formGroup">
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your fullname</mat-label>
+                <input matInput placeholder="eg.Chip Cart" [(ngModel)]="userData.name" formControlName="name" required>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your full address</mat-label>
+                <input matInput placeholder="address" [(ngModel)]="userData.address" formControlName="address" required>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your mobile number</mat-label>
+                <input matInput type="tel" maxlength="10" [(ngModel)]="userData.mobile" placeholder="eg.9876543210"
+                    formControlName="mobile" required>
+            </mat-form-field>
+        </div>
+        <button type="submit" (click)="updateUserDetail()" routerLink="/" mat-raised-button
+            color="primary">Update</button>
+        <button style="margin-left: 20px;" mat-raised-button (click)="onNoClick()" color="accent">Cancel</button>
+    </form>
+
+</mat-card>

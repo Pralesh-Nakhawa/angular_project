@@ -1,11 +1,7 @@
 
-table {
-
+table,div {
   margin: 10px auto;
   width: 80%;
 }
-table, th, td {
-  border: 1px solid black ;
 
-  border-spacing: 0px;
-}
+

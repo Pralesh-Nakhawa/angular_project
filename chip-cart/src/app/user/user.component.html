@@ -1,68 +1,42 @@
-<!-- <table  >
-    <tr>
-        <th>ID</th>
-        <th>User Name</th>
-        <th>Address</th>
-        <th>Mobile</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Edit/Delete</th>
-    </tr>
-    <tr *ngFor="let user of userData">
-        <td> {{user.id}}</td>
-        <td> {{user.name}}</td>
-        <td> {{user.address}}</td>
-        <td> {{user.mobile}}</td>
-        <td> {{user.email}}</td>
-        <td> {{user.password}}</td>
-        
-        <td>  <button  mat-icon-button  color="primary" routerLink="/edit" ><mat-icon>edit</mat-icon> </button>
-             <button mat-icon-button  color="warn" (click)="deleteUserDetail(user)" ><mat-icon>delete</mat-icon> </button></td>
-    </tr>
-</table> -->
-
-<!-- 
-<div >
-    {{userData.id}}<br>
-         {{userData.name}}<br>
-        {{userData.address}}<br>
-        {{userData.mobile}}<br>
-         {{userData.email}}<br>
-         {{userData.password}}<br>
-</div> -->
-      
 <mat-card class="example-card">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{userData.name|uppercase}}</mat-card-title>
-      <mat-card-subtitle>Your Profile </mat-card-subtitle>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Hi, {{userData.name|uppercase}}</mat-card-title>
+        <mat-card-subtitle>Your Profile </mat-card-subtitle>
     </mat-card-header>
-    
     <mat-card-content>
-      <h3><table >
-       <tr> 
-           <td> Name:</td><td> {{userData.name|uppercase}}</td>
-           
-    </tr>
-    <tr> 
-        <td> Email:</td><td> {{userData.email}}</td>
-    </tr>
-    <tr> 
-        <td> Address:</td><td> {{userData.address}}</td>
-    </tr>
-    <tr> 
-        <td> Mobile:</td><td> ****{{userData.mobile| slice:-4}}</td>
-    </tr>
-    <tr>
-        <td>
-            <button mat-icon-button  color="warn" (click)="deleteUserDetail(userData)" ><mat-icon>delete</mat-icon> </button>
-        </td>
-    </tr>
-        </table>
-      </h3>
+        <h3>
+            <table>
+                <tr>
+                    <td> Name:</td>
+                    <td> {{userData.name|uppercase}}</td>
+                </tr>
+                <tr>
+                    <td> Email:</td>
+                    <td> {{userData.email}}</td>
+                </tr>
+                <tr>
+                    <td> Address:</td>
+                    <td> {{userData.address}}</td>
+                </tr>
+                <tr>
+                    <td> Mobile:</td>
+                    <td> ****{{userData.mobile| slice:-4}}</td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <button style="margin-right: 10px;" mat-raised-button color="primary" (click)="openDialog()">
+                            Edit
+                        </button>
+                        <button mat-raised-button color="warn" (click)="deleteUserDetail(userData)">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+        </h3>
     </mat-card-content>
-    <!-- <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions> -->
-  </mat-card>
+</mat-card>

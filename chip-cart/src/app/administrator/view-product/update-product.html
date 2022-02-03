@@ -1,0 +1,47 @@
+<mat-card style="align-items: center;" class="example-card">
+    <h1>Chip-Cart</h1>
+    <h3>Enter Product details</h3>
+
+    <form [formGroup]="updateProductForm">
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Product Title</mat-label>
+                <input matInput placeholder="eg.laptop" [(ngModel)]="data.productList.title" formControlName="title" required>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Product Description</mat-label>
+                <input matInput placeholder="Description" [(ngModel)]="data.productList.description"
+                    formControlName="description" required>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Product Price</mat-label>
+                <input matInput type="number" [(ngModel)]="data.productList.price" formControlName="price" required>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Product Categories</mat-label>
+                <mat-select [(ngModel)]="data.productList.categories" formControlName="categories"
+                    placeholder="categories">
+                    <mat-option value="electronics">electronics</mat-option>
+                    <mat-option value="womens clothing">womens clothing</mat-option>
+                    <mat-option value="Mens Clothing">Mens Clothing</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter Product Image</mat-label>
+                <input matInput type="../assets/" [(ngModel)]="data.productList.image" formControlName="image">
+            </mat-form-field>
+        </div>
+        <div class="example-button-row">
+            <button type="submit" mat-raised-button (click)='updateProduct()' color="primary">Update Product</button>
+            <button mat-raised-button color="warn" (click)='onNoClick()' style="margin-left: 10px;">Cancel</button>
+        </div>
+    </form>
+</mat-card>

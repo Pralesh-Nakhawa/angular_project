@@ -1,9 +1,11 @@
+
+mat-icon{
+  padding-left: 10px;
+}
 .example-card {
     max-width: 400px;
     margin: 0 auto; 
-        float: none; 
-        margin-top: 10px;
-        margin-bottom: 10px;
+    float: none;     
   }
 
 .example-container .mat-form-field + .mat-form-field  {

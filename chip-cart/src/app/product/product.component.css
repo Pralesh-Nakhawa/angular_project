@@ -1,79 +1,20 @@
 .category-card {
 margin: 10px 15% auto;
 }
+
 .category-card button {
   margin-right: 10px;
 }
-   /* mat-grid-list {
-  padding-top: 20px;
-  margin-top: 10px ;
 
-} */
-/* .example-card {
-  padding: 0%;
-  margin: 0%;
-    max-width: 200px;
-    text-align: center;
-  
-  } */
-
-  /* mat-card-header{
-   
-    overflow: hidden;
-    text-align: center;
-    white-space:nowrap;
-    text-overflow:ellipsis;
-    max-width: 100ch; */
-
-    /* inline-size: 150px; */
-    /* overflow-wrap: break-word; */
-/*
-    white-space: normal;
-white-space: nowrap;
-white-space: pre;
-white-space: pre-wrap;
-white-space: pre-line;
-white-space: break-spaces; */
-
-  /* }
-   .card{
-     display: inline;
-   padding: 0%;
-    margin: 0%;
-
-  } */
-  /* .card img {
-
-    max-width: 150px;
-    max-height: 200px;
-    width: 200px;
-    height: 200px;
-    margin: auto;
-    margin-bottom: 15px;
-    transition: 0.3s ease-in-out;
-
-} */
-/* .card img:hover {
-
-  transform: scale(1.1);
-} */
-/* button {
-  background-color: blueviolet;
-} */
-
-  /* .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  } */
-  .product-container{
-    
+.product-container{
     width: 90%;
-    margin: auto;
-  }
-  .card{
+    margin: auto;  
+}
+
+.card{
     display: inline-block;
    margin: 10px;
- }
+}
   
 .example-card {
   padding: 0%;
@@ -81,17 +22,17 @@ white-space: break-spaces; */
   max-height: 500px;
     max-width: 200px;
     text-align: center;
-  
-  }
-  mat-card-header{ 
+}
+
+mat-card-header{ 
     overflow: hidden;
     text-align: center;
     white-space:nowrap;
     text-overflow:ellipsis;
     max-width: 100ch; 
-  }
-  .card img {
+}
 
+.card img {
     max-width: 150px;
     max-height: 200px;
     width: 200px;
@@ -99,11 +40,12 @@ white-space: break-spaces; */
     margin: auto;
     margin-bottom: 15px;
     transition: 0.3s ease-in-out;
-
 }
-  .card img:hover {
+
+.card img:hover {
     transform: scale(1.1);
-  }
-  .card button{
+}
+
+.card button{
     margin-bottom: 10px;
-  }
+}

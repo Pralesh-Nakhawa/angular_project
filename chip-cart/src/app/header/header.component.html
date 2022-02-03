@@ -1,32 +1,35 @@
 <mat-toolbar color="primary">
-    <mat-icon>local_shipping</mat-icon>
-   <span style="margin-right: 60%;">Chip-Cart</span>
-   <a style="margin-right: 6%;" *ngIf="!loggedin()" routerLink="login" style="margin-right:5%;">Login</a>
-   <!-- <a *ngIf="loggedin()" (click)="onLogout()"  style="margin-right:5%;">Logout{{userId}}</a> -->
-   <button style="margin-right: 6%;font-size: large;color: yellow;"
-    *ngIf="loggedin()" mat-button [matMenuTriggerFor]="profile" #menuTrigger>My Account</button>
-   <mat-menu #profile="matMenu">
-     <button mat-menu-item (click)="getProfile()" routerLink="user">Profile</button>
-     <button mat-menu-item routerLink="add-product">Want To Sell? on Chip-Cart</button>
-     <button mat-menu-item (click)="onLogout()">Logout</button>
-   </mat-menu>
-   <!-- <button mat-button [matMenuTriggerFor]="menu" #menuTrigger>ADMIN</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="add-product">Want to Add Product?</button>
-  
-</mat-menu> -->
-
-
-<!-- <a routerLink="admin" style="margin-right:5%;">ADMIN</a> -->
-<button *ngIf="!loggedin()" mat-icon-button  aria-label="Example icon-button with shoppingcart icon">
-  <mat-icon routerLink="login" matBadge={{totalItem}} matBadgeColor="warn" matBadgePosition="after" matBadgeOverlap="true" >shopping_cart_rounded
-
-  </mat-icon></button>
-   <button *ngIf="loggedin()" mat-icon-button aria-label="Example icon-button with shoppingcart icon">
-     <mat-icon routerLink="cart" matBadge={{totalItem}} matBadgeColor="warn" matBadgePosition="after" matBadgeOverlap="true" >shopping_cart_rounded
-
-     </mat-icon>
-
-   </button>
-
+  <div></div>
+  <div>
+    <a style="margin-left: 10%;margin-right: 50%;" routerLink='/'>
+      <mat-icon>local_shipping</mat-icon>
+      <span>Chip-Cart</span>
+    </a>
+  </div>
+  <div></div>
+  <div></div>
+  <div>
+    <a style="margin-right: 6%;" *ngIf="!loggedin()" routerLink="login" style="margin-right:5%;">Login</a>
+    <button style="margin-right: 6%;font-size: large;color: yellow;" *ngIf="loggedin()" mat-button
+      [matMenuTriggerFor]="profile" #menuTrigger>My Account</button>
+    <mat-menu #profile="matMenu">
+      <button  mat-menu-item routerLink="/">Home</button>
+      <button mat-menu-item (click)="getProfile()" routerLink="user">Profile</button>
+      <button mat-menu-item routerLink="view-product">Want To Sell? On Chip-Cart</button>
+      <button  mat-menu-item routerLink="order">Your Orders</button>
+      <button mat-menu-item (click)="onLogout()">Logout</button>
+    </mat-menu>
+  </div>
+  <div>
+    <button *ngIf="!loggedin()" mat-icon-button aria-label="Example icon-button with shoppingcart icon">
+      <mat-icon routerLink="login" matBadge={{totalItem}} matBadgeColor="warn" matBadgePosition="after"
+        matBadgeOverlap="true">shopping_cart_rounded
+      </mat-icon>
+    </button>
+    <button *ngIf="loggedin()" mat-icon-button aria-label="Example icon-button with shoppingcart icon">
+      <mat-icon routerLink="cart" matBadge={{totalItem}} matBadgeColor="warn" matBadgePosition="after"
+        matBadgeOverlap="true">shopping_cart_rounded
+      </mat-icon>
+    </button>
+  </div>
 </mat-toolbar>

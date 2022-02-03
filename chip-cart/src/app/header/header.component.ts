@@ -24,17 +24,11 @@ export class HeaderComponent implements OnInit {
    
   }
   getProfile(){
-    const userIdDetail=parseInt(localStorage.getItem('token')as string)
-    this.api.getUserById(userIdDetail).subscribe(res=>{this.userData=res});  
-    console.log(userIdDetail);
-    console.log(this.userData.name);
+    const userId=parseInt(localStorage.getItem('token')as string)
+    this.api.getUserById(userId).subscribe(res=>{this.userData=res});    
   }
-  
   constructor(private CartService:CartService,private api:LoginServiceService,private route:Router) {}
-
-  loggedin(){
-   
-    
+  loggedin(){ 
     this.userId=localStorage.getItem('token') as string;
     return this.userId
   }

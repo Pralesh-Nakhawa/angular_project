@@ -1,12 +1,9 @@
 
 table {
-   
     margin: 10px auto;
     width: 80%;
   }
 table, th, td {
-    
- 
     border-spacing: 0px;
   }
   .example-card {

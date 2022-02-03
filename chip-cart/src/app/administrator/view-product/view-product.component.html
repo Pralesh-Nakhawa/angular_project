@@ -1,7 +1,17 @@
-<table  >
+<div >
+  <h2>Welcome to Chip-Cart sell</h2>
+  <div style="display: inline-flex;">
+ <h3 style="margin-right: 50%;"> Your Products</h3>
+
+ <button mat-raised-button routerLink="/add-product" color="primary" >Add Product</button>
+
+</div>
+</div>
+
+<!-- <table  >
   <tr>
     <th>Sr.No.</th>
-      <th>ID</th>
+      
       <th>Product Title</th>
       <th>Image</th>
       <th>Description</th>
@@ -11,7 +21,7 @@
   </tr>
   <tr *ngFor="let Product of productList; let i= index" >
     <th> {{i + 1}} </th>
-      <td> {{Product.id}}</td>
+      
       <td> {{Product.title}}</td>
       <td>  <img src="../assets/{{Product.image}}" alt="" height="100" width="100"/></td>
       <td> {{Product.description}}</td>
@@ -21,6 +31,47 @@
       <td>  <button  mat-icon-button  color="primary" routerLink="/edit" ><mat-icon>edit</mat-icon> </button>
            <button mat-icon-button  color="warn" (click)="deleteProduct(Product)"  ><mat-icon>delete</mat-icon> </button></td>
   </tr>
+</table> -->
+<table mat-table [dataSource]="productList" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+ 
+
+  <ng-container matColumnDef="index">
+    <th mat-header-cell *matHeaderCellDef>Sr.No.</th>
+    <td mat-cell *matCellDef="let product=index">{{product+1}} </td>
+  </ng-container>
+  <ng-container matColumnDef="ptitle">
+    <th mat-header-cell *matHeaderCellDef>Product Title</th>
+    <td mat-cell *matCellDef="let product"> {{product.title}} </td>
+  </ng-container>
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef>Image </th>
+    <td mat-cell *matCellDef="let product"> <img src="../assets/{{product.image}}" alt="" height="100" width="100"/> </td>
+  </ng-container>
+  <ng-container matColumnDef="descp">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let product"> {{product.description}} </td>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let product"> {{product.price}} </td>
+  </ng-container>
+  <ng-container matColumnDef="catg">
+    <th mat-header-cell *matHeaderCellDef>Categoey</th>
+    <td mat-cell *matCellDef="let product"> {{product.categories}} </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let product"> 
+      <button  mat-icon-button  color="primary"  (click)="openDialog(product)"  ><mat-icon>edit</mat-icon> </button>
+      <button mat-icon-button  color="warn" (click)="deleteProduct(product)"  ><mat-icon>delete</mat-icon></button> </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
 

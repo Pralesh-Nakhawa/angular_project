@@ -1,52 +1,41 @@
-     
-        <div class="category-card" > 
-          <button (click)="getProductByCat('electronics')" mat-button color="primary">
-            <img  style="height: 64px; width: 64px;" src=".\assets\electronicCat.png"><br>
-             Electronic</button>
-          
-          <button  mat-button color="primary" [matMenuTriggerFor]="fashionCat" #menuTrigger>
-            <img  style="height: 64px; width: 64px;" src=".\assets\fashionCat.png"><br>
-             Fashion</button>
-             <mat-menu #fashionCat="matMenu">
-              <button mat-menu-item (click)="getProductByCat('Mens Clothing')" >Mens Clothing</button>
-              <button mat-menu-item (click)="getProductByCat('womens clothing')" >Womens Clothing</button>
-            </mat-menu>
-           
-        </div>
-       <mat-divider></mat-divider>
-
-
-<div class="product-container">
-<div class="card" *ngFor="let item of productList">
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{item.title}}</mat-card-title>
-  </mat-card-header>
-  <img mat-card-image  src="{{item.image}}">
-  <mat-card-content >
-    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
-
-    <p><strong>Price: {{item.price}}</strong></p>
-    <mat-form-field style="width: 60%; height: 40%;"  appearance="outline">
-      <mat-label>Quantity</mat-label>
-      <!-- [(ngModel)]="pQuantity"  -->
-    <select name="pQuantity"  [(ngModel)]="item.pQuantity"   class="form-control" matNativeControl >
-      <option value="1" selected>01</option>
-      <option value="2">02</option>
-      <option value="3">03</option>
-      <option value="4">04</option>
-      <option value="5">05</option>
-  </select>
- 
-    </mat-form-field>
-  
-   
-  </mat-card-content>
-
-  <mat-card-actions >
-   
-    <button mat-raised-button  (click)="addtoCart(item,item.pQuantity)" color="primary">Add To Cart</button>    
-  </mat-card-actions>
-</mat-card>
+<div class="category-card">
+  <button (click)="getProductByCat('electronics')" mat-button color="primary">
+    <img style="height: 64px; width: 64px;" src=".\assets\electronicCat.png"><br>
+    Electronic</button>
+  <button mat-button color="primary" [matMenuTriggerFor]="fashionCat" #menuTrigger>
+    <img style="height: 64px; width: 64px;" src=".\assets\fashionCat.png"><br>
+    Fashion</button>
+  <mat-menu #fashionCat="matMenu">
+    <button mat-menu-item (click)="getProductByCat('Mens Clothing')">Mens Clothing</button>
+    <button mat-menu-item (click)="getProductByCat('womens clothing')">Womens Clothing</button>
+  </mat-menu>
 </div>
+<mat-divider></mat-divider>
+<div class="product-container">
+  <div class="card" *ngFor="let item of productList">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{item.title}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{item.image}}">
+      <mat-card-content>
+        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}
+        </p>
+        <p><strong>Price: {{item.price}}</strong></p>
+        <mat-form-field style="width: 60%; height: 40%;" appearance="outline">
+          <mat-label>Quantity</mat-label>
+          <select [(ngModel)]="item.pQuantity" class="form-control" matNativeControl>
+            <option value="1" selected>01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+          </select>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="addtoCart(item,item.pQuantity)" color="primary">Add To Cart</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>

@@ -1,9 +1,9 @@
 .example-card {
     max-width: 400px;
     margin: 0 auto; 
-        float: none; 
-        margin-top: 100px;
-        margin-bottom: 100px;
+    float: none; 
+    margin-top: 100px;
+    margin-bottom: 100px;
   }
 
 .example-container .mat-form-field + .mat-form-field  {
