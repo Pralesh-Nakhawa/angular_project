@@ -33,7 +33,7 @@ export class UserComponent implements OnInit {
   }
   getProfile() {
     const userIdDetail = parseInt(localStorage.getItem('token') as string)
-    this.api.getUserById(userIdDetail).subscribe(res => { this.userData = res });
+    this.api.getUserById(userIdDetail).subscribe(res => { this.userData = res.userDetails });
 
 
   }
@@ -43,7 +43,7 @@ export class UserComponent implements OnInit {
   }
   getUserDetail(user: any) {
     this.api.getUserById(user.id)
-      .subscribe(res => { this.userData = res })
+      .subscribe(res => { this.userData = res.userDetails })
   }
   deleteUserDetail(user: any) {
     this.api.deleteUser(user.id)
@@ -78,7 +78,7 @@ export class DialogOverviewExampleDialog {
   }
   getProfile() {
     const userIdDetail = parseInt(localStorage.getItem('token') as string)
-    this.api.getUserById(userIdDetail).subscribe(res => { this.userData = res });
+    this.api.getUserById(userIdDetail).subscribe(res => { this.userData = res.userDetails });
   }
   initForm() {
 

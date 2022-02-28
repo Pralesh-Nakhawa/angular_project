@@ -14,7 +14,7 @@ constructor(private api :ProductService , private CartService:CartService) { }
 ngOnInit(): void {
     this.api.getProduct()
     .subscribe((res:any)=>{
-      this.productList=res;
+      this.productList=res.productDetails;
       this.productList.forEach((a:any) => {
         Object.assign(a,{quantity:this.pQuantity,total:a.price});
       })     
