@@ -6,26 +6,26 @@ import { throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
+  apiUrl="https://localhost:44385/api/Products/";
   productByCat(categorie: string) {
-    return this.http.get<any>("http://localhost:3000/app/product/categories/" + categorie)
+    return this.http.get<any>(this.apiUrl+"get_product_by_category/" + categorie)
       .pipe(map((res: any) => { return res; }))
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,) { }
   getProduct() {
-    try{
-    return this.http.get<any>("https://localhost:44385/api/Products/get_all_products/")
+   
+    return this.http.get<any>(this.apiUrl+"get_all_products/")
       .pipe(map((res: any) => { return res; }),
       catchError(err => {
        console.log('caught mapping error and rethrowing', err);
        return throwError(()=>err);
    }))
-  }catch(err){
-    return throwError(()=>err);
-  }}
+  }
   postProduct(data: any) {
-    return this.http.post<any>("http://localhost:3000/app/product/add/", data)
+    return this.http.post<any>(this.apiUrl+"addProduct/", data)
       .pipe(map((res: any) => { return res; }),
       catchError(err => {
        console.log('caught mapping error and rethrowing', err);
@@ -33,7 +33,7 @@ export class ProductService {
    }))
   }
   updateProduct(data: any, id: number) {
-    return this.http.put<any>("http://localhost:3000/app/product/update/" + id, data)
+    return this.http.put<any>(this.apiUrl+"updateProduct/" + id, data)
       .pipe(map((res: any) => { return res; }),
       catchError(err => {
        console.log('caught mapping error and rethrowing', err);
@@ -41,7 +41,7 @@ export class ProductService {
    }))
   }
   deleteProduct(id: number) {
-    return this.http.delete<any>("http://localhost:3000/app/product/delete/" + id)
+    return this.http.delete<any>(this.apiUrl+"deleteProduct/" + id)
       .pipe(map((res: any) => { return res; }),
       catchError(err => {
        console.log('caught mapping error and rethrowing', err);
@@ -50,18 +50,21 @@ export class ProductService {
   }
   getProductByuserid(id: number) {
     try{
-    return this.http.get<any>("http://localhost:3000/app/product/userid/" + id)
-      .pipe(map((res: any) => { return res; }),
+    return this.http.get<any>(this.apiUrl+"get_product_by_userid/" + id)
+      .pipe(map((res: any) => { return res.productDetails; }),
       catchError(err => {
        console.log('caught mapping error and rethrowing', err);
        return throwError(()=>err);
    }))
-
   }
   catch(err){
     return throwError(()=>err);
   
   }
+}
+getProductbySearch(title:string){
+  return this.http.get<any>(this.apiUrl+"SearchProduct/" + title)
+  .pipe(map((res: any) => { return res; }))
 }
 
 

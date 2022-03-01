@@ -36,11 +36,25 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart();
   }
   placeOrder() {
-    this.orderService.postOrder({ userid: localStorage.getItem('token') })
-      .subscribe(res => {
-        alert('ordered sucessful;');
-        this.emptycart();
+    //sort productids from carts and store in DB
+    var len = this.cartService.cartItemList.length;
+    console.log(this.cartService.cartItemList);
+    for (var i = 0; i < len; i++) {
+      var quantity=this.cartService.cartItemList[i].product.pQuantity;
+      if(quantity==null){
+        quantity=1;
+      }
+      this.orderService.postOrder({
+        userid: parseInt(localStorage.getItem('token') as string),
+        productids: this.cartService.cartItemList[i].product.id,
+        productname: this.cartService.cartItemList[i].product.title,
+        productprice: this.cartService.cartItemList[i].product.price,
+        productquantity: parseInt( quantity as string)
       })
-
+        .subscribe(res => {
+        })
+    }
+    alert('ordered sucessful;');
+    this.emptycart();
   }
 }

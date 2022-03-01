@@ -6,3 +6,13 @@ a{
     text-decoration: none;
     color: yellow;
 }
+.form-controls{
+  border-radius: 2px;
+  width:100%;
+  margin-left: 20px;
+height: 30px;
+}
+.searchIcon{
+  padding-left: 20%;
+
+}

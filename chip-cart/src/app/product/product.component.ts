@@ -27,7 +27,7 @@ addtoCart(productList : any, pQuantity:number=1){
 getProductByCat(categorie:string){
   this.api.productByCat(categorie)
   .subscribe((res:any)=>{
-    this.productList=res;
+    this.productList=res.productDetails;
   });
 }
 }

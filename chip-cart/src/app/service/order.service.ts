@@ -9,24 +9,24 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
   getOrder() {
-    return this.http.get<any>("http://localhost:3000/app/order/")
+    return this.http.get<any>("https://localhost:44385/api/Order/get_all_orders/")
       .pipe(map((res: any) => { return res; }),
        catchError(err => {
         console.log('caught mapping error and rethrowing', err);
         return throwError(()=>err);
     }))
   }
-  getOrderDetail() {
-    return this.http.get<any>("http://localhost:3000/app/order-detail/")
-      .pipe(map((res: any) => { return res; }))
-  }
-  postOrderDetail(data: any) {
-    return this.http.post<any>("http://localhost:3000/app/order-detail/add/", data)
+
+  getOrderById(id:any){
+    return this.http.get<any>("https://localhost:44385/api/Order/get_orders_by_id/"+id)
       .pipe(map((res: any) => { return res; }))
   }
   postOrder(data: any) {
-    return this.http.post<any>("http://localhost:3000/app/order/add/", data)
-      .pipe(map((res: any) => { return res; }))
-      
+    return this.http.post<any>("https://localhost:44385/api/Order/place_order/", data)
+      .pipe(map((res: any) => { return res; })) 
   }
+ deleteOrder(id:any){
+   return this.http.delete<any>("https://localhost:44385/api/Order/cancel_order/"+id)
+   .pipe(map((res:any)=>{return res;}))
+ } 
 }
