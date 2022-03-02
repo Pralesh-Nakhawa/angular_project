@@ -81,6 +81,8 @@ export class UpdateProductComponent {
   updateProduct() {
     if (this.updateProductForm.valid) {
       // console.log(this.updateProductForm.value)
+      this.updateProductForm.value.id=this.data.productList.id;
+      this.updateProductForm.value.userid=parseInt(localStorage.getItem('token') as string);
       this.api.updateProduct(this.updateProductForm.value, this.data.productList.id)
         .subscribe((res) => {
           alert("Product Added Successfully");

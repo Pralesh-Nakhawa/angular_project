@@ -22,7 +22,7 @@ export class LoginServiceService {
       .pipe(map((res: any) => { return res }))
   }
   updateUser(data: any, id: number) {
-    return this.http.put<any>("https://localhost:44385/api/User/updateUser/" + id, data)
+    return this.http.put<any>("https://localhost:44385/api/User/updateUser/",  data)
       .pipe(map((res: any) => { return res }))
   }
   deleteUser(id: number) {

@@ -40,10 +40,9 @@ export class HeaderComponent implements OnInit {
   }
   search(event:any){
     var searchText = (event.target as HTMLInputElement).value;
-    console.log(this.searchTerm);
-    this.productservice.getProductbySearch(searchText)
-   .subscribe((res:any)=>{
-     
-  })
+    if(searchText!="")
+    {
+      this.route.navigate(["/products"],{queryParams:{data:searchText}});
+    }
 }
 }

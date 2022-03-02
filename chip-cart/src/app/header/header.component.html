@@ -6,17 +6,12 @@
       <span>Chip-Cart</span>
     </a>
   </div>
-  <form class="example-form">
+  
   
   <div class="form-Group">
-    <input type="text" class="form-controls" [(ngModel)]="searchTerm"  (keyup)="search($event)"  placeholder="Search Product">
-    
-      <button type="submit" mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
-        <mat-icon>search</mat-icon>
-      </button>
+    <input type="text" class="form-controls" [(ngModel)]="searchTerm"  (keyup)="search($event)"  placeholder="Search Product" [ngModelOptions]="{standalone:true}" >
 </div>
 
-</form>
 <div></div>
   <div>
     <a style="margin-right: 6%;" *ngIf="!loggedin()" routerLink="login" style="margin-right:5%;">Login</a>

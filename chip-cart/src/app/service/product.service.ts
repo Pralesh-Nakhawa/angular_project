@@ -33,7 +33,7 @@ export class ProductService {
    }))
   }
   updateProduct(data: any, id: number) {
-    return this.http.put<any>(this.apiUrl+"updateProduct/" + id, data)
+    return this.http.put<any>(this.apiUrl+"updateProduct/",data)
       .pipe(map((res: any) => { return res; }),
       catchError(err => {
        console.log('caught mapping error and rethrowing', err);
